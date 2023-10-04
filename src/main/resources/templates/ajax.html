@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tasks</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/fa/fa.min.css" rel="stylesheet">
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/jquery-3.6.1.min.js"></script>
+    <script src="/js/ajax.js"></script>
+</head>
+<body>
+<!-- компонент меню-->
+<nav th:insert="~{base.html :: menu}">
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 col-sm-12">
+            <h2>Tasks:</h2>
+            <div class="row">
+                <div class="col-md-2" style="font-weight: bold">
+                    Title
+                </div>
+                <div class="col-md-4" style="font-weight: bold">
+                    Description
+                </div>
+                <div class="col-md-2" style="font-weight: bold">
+                    Start date
+                </div>
+                <div class="col-md-2" style="font-weight: bold">
+                    End date
+                </div>
+            </div>
+            <div class="row" id="records">
+            </div>
+            <a class="btn btn-primary" href="/">Tasks in progress</a>
+        </div>
+    </div>
+<!--     Modal-->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p style="color:red"></p>
+                    <div class="d-none" id="editId"></div>
+                    <div class="form-group">
+                        <label for="editEndDate">Тема</label>
+                        <input type="date" class="form-control" id="editEndDate" placeholder="Введите ">
+                    </div>
+<!--                    <div class="form-group">-->
+<!--                        <label for="editTo">Кому</label>-->
+<!--                        <input class="form-control" type="email" id="editTo" placeholder="Кому"/>-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="editMessage">Сообщение</label>-->
+<!--                        <textarea class="form-control" id="editMessage" placeholder="Сообщение"></textarea>-->
+<!--                    </div>-->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                            onclick="$('#editModal').modal('hide');">Close
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="save()">Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/bootstrap.bundle.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        console.log("load");
+        loadList();
+    });
+
+
+</script>
+<footer th:insert="~{base.html :: footer}">
+</footer>
+</body>
+</html>

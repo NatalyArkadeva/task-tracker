@@ -1,0 +1,22 @@
+server.port: 8080
+
+spring:
+  liquibase:
+    enabled: true
+  jpa:
+    database: POSTGRESQL
+    show-sql: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+  datasource:
+    url: jdbc:postgresql://localhost:5555/task_tracker
+    username: admin
+    password: admin
+    driverClassName: org.postgresql.Driver
+  thymeleaf:
+    prefix=classpath:/templates/:
+    cache: false
+
+logging:
+  file.path: ./logs

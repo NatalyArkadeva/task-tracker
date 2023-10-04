@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{base.html :: head}">
+    <title>Create employee page</title>
+</head>
+<body>
+<!-- компонент меню-->
+<nav th:insert="~{base.html :: menu}">
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 col-sm-12">
+            <h2>Create new employee</h2>
+            <form action="#" th:action="@{/employee/add}" th:object="${employee}" method="post" class="input-form">
+                <div class="form-group">
+                    <label for="name" class="label">Name:</label>
+                    <input type="text" class="form-control" th:field="*{name}" id="name" placeholder="name"/>
+                    <!--                    <p class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>-->
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber" class="label">Phone number:</label>
+                    <input type="text" class="form-control" th:field="*{phoneNumber}" id="phoneNumber"
+                           placeholder="phoneNumber"/>
+                    <!--                    <p class="error" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></p>-->
+                </div>
+                <div class="form-group">
+                    <label for="email" class="label">Email:</label>
+                    <input type="text" class="form-control" th:field="*{email}" id="email" placeholder="email"/>
+                    <!--                    <p class="error" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></p>-->
+                </div>
+                <input class="form-group" type="submit" value="Create"/>
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer th:insert="~{base.html :: footer}">
+</footer>
+
+<div th:insert="~{base.html :: script}"></div>
+</body>
+</html>

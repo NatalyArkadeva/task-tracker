@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{base.html :: head}">
+    <title>Create task type page</title>
+</head>
+<body>
+<!-- компонент меню-->
+<nav th:insert="~{base.html :: menu}">
+</nav>
+
+<div class="container-fluid">
+    <div class="row">-->
+        <div class="col-md-2"></div>
+        <div class="col-md-8 col-sm-12">
+            <h2>Create new task type</h2>
+            <form action="#" th:action="@{/task_type/add}" th:object="${taskType}" method="post" class="input-form">
+                <div class="form-group">
+                    <label for="title" class="label">Title:</label>
+                    <input type="text" class="form-control" th:field="*{title}" id="title" placeholder="title"/>
+<!--                    <p class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>-->
+                </div>
+                <div class="form-group">
+                    <label for="description" class="label">Description:</label>
+                    <input type="text" class="form-control" th:field="*{description}" id="description" placeholder="description"/>
+<!--                    <p class="error" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></p>-->
+                </div>
+                <input class="form-group" type="submit" value="Create"/>
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer th:insert="~{base.html :: footer}">
+</footer>
+<div th:insert="~{base.html :: script}"></div>
+</body>
+</html>
